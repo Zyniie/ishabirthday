@@ -23,3 +23,15 @@ menu_item.forEach((item) => {
 		mobile_menu.classList.toggle('active');
 	});
 });
+
+// Pilih semua link yang ingin digunakan
+document.querySelectorAll('.scroll-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // Mencegah perubahan URL (hash tetap ada di URL)
+    
+    // Pindah ke section yang sesuai
+    const targetId = this.getAttribute('href').substring(1); // Mengambil ID dari href
+    const targetSection = document.getElementById(targetId);
+    targetSection.scrollIntoView({ behavior: 'smooth' }); // Scroll ke section dengan efek smooth
+  });
+});
